@@ -1,30 +1,62 @@
 <!doctype html>
-<html lang="it">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#d71920"><meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
-<title>FILT CGIL Catania — Busta Paga</title>
+<title>FILT CGIL Catania · Busta Paga</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:#171717}
-.app{max-width:430px;margin:auto;min-height:100vh;background:#fff}header{padding:22px 18px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#fff;z-index:2}.logo{font-size:23px;font-weight:900}.logo span{color:#d71920}.sub{font-size:12px;font-weight:700;margin-top:4px;color:#555}
-main{padding:16px 15px 90px}.hero{background:#171717;color:#fff;border-radius:22px;padding:20px;margin-bottom:15px}.hero h1{font-size:26px;margin:8px 0}.hero p{color:#ccc;font-size:14px}
-.card{border:1px solid #e5e7eb;border-radius:18px;padding:16px;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.item{border:1px solid #e5e7eb;border-radius:14px;padding:14px}.item b{display:block;margin-top:5px}.btn{width:100%;border:0;border-radius:13px;padding:14px;font-weight:800;font-size:15px;margin-top:9px}.red{background:#d71920;color:#fff}.gray{background:#eeeef0}
-input{display:none}.upload{display:block;text-align:center;border:2px dashed #ccc;border-radius:14px;padding:20px;font-weight:700;margin:8px 0}
-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:#fff;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:8px}nav button{border:0;background:none;font-size:11px;padding:6px 18px}
-</style></head>
-<body><div class="app">
-<header><div class="logo">FILT <span>CGIL Catania</span></div><div class="sub">MERCI E LOGISTICA · CONTROLLO BUSTA PAGA</div></header>
+.app{max-width:430px;margin:auto;min-height:100vh;background:#fff}header{padding:18px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#fff;z-index:5}.brand{font-size:21px;font-weight:900}.brand span{color:#d71920}.sub{font-size:11px;font-weight:800;color:#555;margin-top:3px}
+main{padding:15px 14px 90px}.screen{display:none}.screen.active{display:block}.hero{background:#171717;color:#fff;border-radius:21px;padding:19px;margin-bottom:14px}.hero h1{margin:7px 0;font-size:25px}.hero p{margin:0;color:#ccc;font-size:13px}
+.card{border:1px solid #e5e7eb;border-radius:17px;padding:15px;margin-bottom:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{border:1px solid #e5e7eb;border-radius:13px;padding:11px}.metric b{display:block;font-size:18px;margin-top:3px}
+label{display:block;font-size:11px;font-weight:800;margin:7px 0 3px}input,select{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:9px;background:#fff;font-size:14px}
+button{border:0;border-radius:12px;padding:12px 14px;font-weight:800;font-size:14px;cursor:pointer}.primary{background:#d71920;color:#fff;width:100%;margin-top:8px}.secondary{background:#eeeef0}.danger{background:#fff0f0;color:#d71920}
+.upload{display:block;text-align:center;border:2px dashed #ccc;border-radius:13px;padding:19px;font-weight:800;margin:7px 0}.upload input{display:none}
+.entry{border:1px solid #e5e7eb;border-radius:13px;padding:11px;margin:8px 0}.entrytop{display:flex;justify-content:space-between}.meta{font-size:12px;color:#666;margin-top:4px}
+.badge{display:inline-block;background:#fff0f0;color:#d71920;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900}.ok{background:#effaf2;padding:12px;border-radius:12px;margin:8px 0}.warn{background:#fff7e8;padding:12px;border-radius:12px;margin:8px 0}.muted{font-size:12px;color:#6b7280}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:#fff;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:7px;z-index:10}nav button{background:none;font-size:11px;color:#555}
+hr{border:0;border-top:1px solid #eee}
+</style></head><body><div class="app">
+<header><div class="brand">FILT <span>CGIL Catania</span></div><div class="sub">MERCI E LOGISTICA · CONTROLLO BUSTA PAGA</div></header>
 <main>
-<div class="hero"><div style="font-size:12px;color:#bbb">STRUMENTO DI PROVA</div><h1>Controlla la tua busta paga</h1><p>Leggi la busta, inserisci le giornate e confronta le ore con quanto pagato.</p></div>
-<div class="card"><h3>1 · Carica la busta paga</h3><label class="upload">📄 Seleziona PDF o foto<input id="file" type="file" accept="application/pdf,image/*"></label><div id="filename" style="font-size:12px;color:#666"></div></div>
-<div class="card"><h3>2 · Inserisci le giornate</h3><p style="font-size:13px;color:#666">Non serve avere il cartellino: puoi inserire manualmente entrata, uscita, pausa e tipo di giornata.</p><button class="btn red" onclick="alert('Modulo giornate: nella prossima versione collegheremo il diario al motore di calcolo.')">＋ Aggiungi giornata</button></div>
-<div class="card"><h3>3 · Analisi</h3><div class="grid"><div class="item">📊<b>Ore</b><small>Ordinarie e straordinarie</small></div><div class="item">🌙<b>Notturno</b><small>Maggiorazioni</small></div><div class="item">📅<b>Festivo</b><small>Domeniche e festività</small></div><div class="item">📑<b>Report</b><small>Esito del controllo</small></div></div><button class="btn red" onclick="alert('Motore di analisi: pronto per essere collegato alla versione completa.')">Analizza la busta paga</button></div>
+<section id="home" class="screen active">
+<div class="hero"><div style="font-size:11px;color:#aaa">STRUMENTO DI SUPPORTO</div><h1>Controlla la tua busta paga</h1><p>Carica la busta e ricostruisci le giornate lavorate. Il confronto evidenzia le quantità da verificare.</p></div>
+<div class="card"><h3>📄 Busta paga</h3><label class="upload">Seleziona PDF o foto<input id="file" type="file" accept="application/pdf,image/*"></label><div id="fileName" class="muted"></div></div>
+<div class="card"><h3>📅 Diario giornaliero</h3><p class="muted">Non serve avere il cartellino. Inserisci entrata, uscita, pausa e tipo di giornata.</p><button class="primary" onclick="go('diary')">＋ Inserisci giornate</button></div>
+<div class="card"><h3>🔎 Analisi</h3><div class="grid"><div class="metric">Ore<b id="homeHours">0,00</b></div><div class="metric">Straordinario<b id="homeOT">0,00</b></div><div class="metric">Notturno<b id="homeNight">0,00</b></div><div class="metric">Dom./festivo<b id="homeSpecial">0,00</b></div></div><button class="primary" onclick="analyze()">Confronta con la busta</button></div>
+</section>
+
+<section id="diary" class="screen">
+<div class="card"><span class="badge">NUOVA GIORNATA</span>
+<label>Data</label><input id="date" type="date" value="2026-08-01">
+<div class="grid"><div><label>Entrata</label><input id="tin" type="time" value="08:00"></div><div><label>Uscita</label><input id="tout" type="time" value="17:00"></div></div>
+<div class="grid"><div><label>Pausa (min)</label><input id="pause" type="number" value="60" min="0"></div><div><label>Ore previste</label><input id="planned" type="number" value="8" step=".25" min="0"></div></div>
+<label>Tipo</label><select id="type"><option>Ordinaria</option><option>Notturna</option><option>Domenicale</option><option>Festiva</option><option>Domenicale notturna</option><option>Riposo</option><option>Ferie</option><option>Malattia</option></select>
+<label>Note</label><input id="note" placeholder="es. turno GDO">
+<button class="primary" onclick="addDay()">Aggiungi giornata</button>
+</div>
+<div class="card"><h3>Riepilogo</h3><div class="grid"><div class="metric">Giornate<b id="days">0</b></div><div class="metric">Lavorate<b id="hours">0,00</b></div><div class="metric">Ordinarie<b id="ord">0,00</b></div><div class="metric">Straordinarie<b id="ot">0,00</b></div><div class="metric">Notturne<b id="night">0,00</b></div><div class="metric">Dom./festive<b id="special">0,00</b></div></div></div>
+<div class="card"><h3>Giornate inserite</h3><div id="entries"></div></div>
+<button class="secondary" onclick="analyze()">✓ Confronta con la busta</button>
+</section>
+
+<section id="analysis" class="screen">
+<div class="card"><span class="badge">CONFRONTO QUANTITATIVO</span><h2>Diario ↔ Busta paga</h2><div id="analysisBox"></div></div>
+<div class="card"><h3>Voci della busta di test</h3><div class="muted">Straordinario diurno: 21 h · Notturno su turni: 90,5 h · Domenicale/festivo: 27,5 h complessive.</div></div>
+<div class="card"><h3>Prossimo controllo</h3><p class="muted">Quando il motore CCNL sarà collegato, le ore saranno anche valorizzate in euro e confrontate con le maggiorazioni applicabili.</p></div>
+</section>
 </main>
-<nav><button>⌂<br>Home</button><button>▦<br>Giornate</button><button>✓<br>Analisi</button><button>☷<br>Report</button></nav>
+<nav><button onclick="go('home')">⌂<br>Home</button><button onclick="go('diary')">📅<br>Giornate</button><button onclick="analyze()">✓<br>Analisi</button></nav>
 </div>
 <script>
-document.getElementById('file').addEventListener('change',e=>{document.getElementById('filename').textContent=e.target.files[0]?e.target.files[0].name:''});
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+let data=JSON.parse(localStorage.getItem('filtDiary')||'[]');
+const $=id=>document.getElementById(id);
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');render()}
+function calc(a,b,p){if(!a||!b)return 0;let [ah,am]=a.split(':').map(Number),[bh,bm]=b.split(':').map(Number),x=ah*60+am,y=bh*60+bm;if(y<=x)y+=1440;return Math.max(0,(y-x-p)/60)}
+function addDay(){let type=$('type').value,w=['Riposo','Ferie','Malattia'].includes(type)?0:calc($('tin').value,$('tout').value,+$('pause').value||0),planned=+$('planned').value||0;data.push({date:$('date').value,tin:$('tin').value,tout:$('tout').value,pause:+$('pause').value||0,planned,type,note:$('note').value,w,ot:Math.max(0,w-planned),ord:Math.min(w,planned)});data.sort((a,b)=>a.date.localeCompare(b.date));save();render()}
+function remove(i){data.splice(i,1);save();render()}
+function save(){localStorage.setItem('filtDiary',JSON.stringify(data))}
+function totals(){let w=data.reduce((s,e)=>s+e.w,0),o=data.reduce((s,e)=>s+e.ord,0),ot=data.reduce((s,e)=>s+e.ot,0),n=data.filter(e=>['Notturna','Domenicale notturna'].includes(e.type)).reduce((s,e)=>s+e.w,0),sp=data.filter(e=>['Domenicale','Festiva','Domenicale notturna'].includes(e.type)).reduce((s,e)=>s+e.w,0);return{w,o,ot,n,sp}}
+function fmt(x){return x.toFixed(2).replace('.',',')}
+function render(){let t=totals();['hours','homeHours'].forEach(x=>$(x).textContent=fmt(t.w));['ot','homeOT'].forEach(x=>$(x).textContent=fmt(t.ot));['night','homeNight'].forEach(x=>$(x).textContent=fmt(t.n));['special','homeSpecial'].forEach(x=>$(x).textContent=fmt(t.sp));$('ord').textContent=fmt(t.o);$('days').textContent=data.length;$('entries').innerHTML=data.length?data.map((e,i)=>`<div class="entry"><div class="entrytop"><b>${new Date(e.date+'T12:00:00').toLocaleDateString('it-IT',{weekday:'short',day:'2-digit',month:'2-digit'})}</b><button class="danger" onclick="remove(${i})">Elimina</button></div><div class="meta">${e.tin} → ${e.tout} · pausa ${e.pause} min · <b>${fmt(e.w)} h</b></div><div class="meta">${e.type}${e.ot?' · straordinario '+fmt(e.ot)+' h':''}${e.note?' · '+e.note:''}</div></div>`).join(''):'<p class="muted">Nessuna giornata inserita.</p>'}
+function analyze(){let t=totals(), ds=t.ot-21,dn=t.n-90.5,df=t.sp-27.5,issues=[];if(Math.abs(ds)>.01)issues.push(`Straordinario: diario ${fmt(t.ot)} h · busta 21,00 h · differenza ${ds>0?'+':''}${fmt(ds)} h.`);if(Math.abs(dn)>.01)issues.push(`Notturno: diario ${fmt(t.n)} h · busta 90,50 h · differenza ${dn>0?'+':''}${fmt(dn)} h.`);if(Math.abs(df)>.01)issues.push(`Domenicale/festivo: diario ${fmt(t.sp)} h · busta 27,50 h · differenza ${df>0?'+':''}${fmt(df)} h.`);$('analysisBox').innerHTML=issues.length?`<div class="warn"><b>⚠ ${issues.length} differenze da verificare</b>${issues.map(x=>`<p class="muted">${x}</p>`).join('')}</div>`:`<div class="ok"><b>✓ Nessuna differenza quantitativa nelle voci controllate.</b><p class="muted">Il controllo dipende dalle giornate inserite. Una corrispondenza non certifica da sola la correttezza della busta.</p></div>`;go('analysis')}
+$('file').addEventListener('change',e=>{if(e.target.files[0])$('fileName').textContent='File selezionato: '+e.target.files[0].name});render();
 </script></body></html>
