@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#d71920"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
+<title>FILT CGIL Catania — Busta Paga</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:#171717}
+.app{max-width:430px;margin:auto;min-height:100vh;background:#fff}header{padding:22px 18px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#fff;z-index:2}.logo{font-size:23px;font-weight:900}.logo span{color:#d71920}.sub{font-size:12px;font-weight:700;margin-top:4px;color:#555}
+main{padding:16px 15px 90px}.hero{background:#171717;color:#fff;border-radius:22px;padding:20px;margin-bottom:15px}.hero h1{font-size:26px;margin:8px 0}.hero p{color:#ccc;font-size:14px}
+.card{border:1px solid #e5e7eb;border-radius:18px;padding:16px;margin-bottom:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.item{border:1px solid #e5e7eb;border-radius:14px;padding:14px}.item b{display:block;margin-top:5px}.btn{width:100%;border:0;border-radius:13px;padding:14px;font-weight:800;font-size:15px;margin-top:9px}.red{background:#d71920;color:#fff}.gray{background:#eeeef0}
+input{display:none}.upload{display:block;text-align:center;border:2px dashed #ccc;border-radius:14px;padding:20px;font-weight:700;margin:8px 0}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:#fff;border-top:1px solid #e5e7eb;display:flex;justify-content:space-around;padding:8px}nav button{border:0;background:none;font-size:11px;padding:6px 18px}
+</style></head>
+<body><div class="app">
+<header><div class="logo">FILT <span>CGIL Catania</span></div><div class="sub">MERCI E LOGISTICA · CONTROLLO BUSTA PAGA</div></header>
+<main>
+<div class="hero"><div style="font-size:12px;color:#bbb">STRUMENTO DI PROVA</div><h1>Controlla la tua busta paga</h1><p>Leggi la busta, inserisci le giornate e confronta le ore con quanto pagato.</p></div>
+<div class="card"><h3>1 · Carica la busta paga</h3><label class="upload">📄 Seleziona PDF o foto<input id="file" type="file" accept="application/pdf,image/*"></label><div id="filename" style="font-size:12px;color:#666"></div></div>
+<div class="card"><h3>2 · Inserisci le giornate</h3><p style="font-size:13px;color:#666">Non serve avere il cartellino: puoi inserire manualmente entrata, uscita, pausa e tipo di giornata.</p><button class="btn red" onclick="alert('Modulo giornate: nella prossima versione collegheremo il diario al motore di calcolo.')">＋ Aggiungi giornata</button></div>
+<div class="card"><h3>3 · Analisi</h3><div class="grid"><div class="item">📊<b>Ore</b><small>Ordinarie e straordinarie</small></div><div class="item">🌙<b>Notturno</b><small>Maggiorazioni</small></div><div class="item">📅<b>Festivo</b><small>Domeniche e festività</small></div><div class="item">📑<b>Report</b><small>Esito del controllo</small></div></div><button class="btn red" onclick="alert('Motore di analisi: pronto per essere collegato alla versione completa.')">Analizza la busta paga</button></div>
+</main>
+<nav><button>⌂<br>Home</button><button>▦<br>Giornate</button><button>✓<br>Analisi</button><button>☷<br>Report</button></nav>
+</div>
+<script>
+document.getElementById('file').addEventListener('change',e=>{document.getElementById('filename').textContent=e.target.files[0]?e.target.files[0].name:''});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script></body></html>
